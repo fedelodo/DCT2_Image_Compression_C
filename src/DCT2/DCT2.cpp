@@ -3,11 +3,10 @@
 #include <math.h>
 #define _USE_MATH_DEFINES
 ///This function computes DCT2 of a matrix of int
-DCT2::DCT2matrix *DCT2::DCT2Compute(const int *matrix) {
+DCT2::DCT2matrix *DCT2::DCT2Compute2D(const int *matrix, int size) {
     // allocando la memoria come  type *array = new type[sizeX*sizeY];
     // consente di gestire in modo più efficente gli array in quanto alloca un unico
     // blocco di memoria l' accesso all' elemento array[i][j] può essere fatto con array[i*sizeY+j]
-    const  int size = sizeof(matrix)/sizeof(matrix[0]);
     auto *c = new DCT2::DCT2matrix[size*size];
     DCT2::DCT2matrix sum;
     int l,k,i,j,N;
@@ -24,14 +23,33 @@ DCT2::DCT2matrix *DCT2::DCT2Compute(const int *matrix) {
                             cos(l*M_PI*((2.0f*(float)j+1)/(2.0f*(float)N)));
                 }
             }
-            c[i*size+j] = alphakl(k,l,N) * sum;
+            c[k*size+l] = alpha2D(k,l,N) * sum;
         }
     }
     return c;
 }
 
+///This function computes DCT2 of a matrix of int
+DCT2::DCT2matrix *DCT2::DCT2Compute1D(const int *array, int size) {
+    auto *c = new DCT2::DCT2matrix[size];
+    DCT2::DCT2matrix sum;
+    int l,k,i,j,N;
+    N=size;
+    for(k=0; k < N; k++)
+    {
+        sum = 0;
+            for (i = 0; i < N; i++)
+            {
+                    sum += array[i]*
+                           cos(k*M_PI*((2.0f*(float)i+1)/2.0f*(float)N));
+                }
+            c[k] = alpha1D(k,N) * sum;
+        }
+    return c;
+}
+
 ///This functions computes alphakl values
-float DCT2::alphakl(int k, int l, int N) {
+float DCT2::alpha2D(int k, int l, int N) {
     if(k > 0 && l > 0) {
         return 2.0f/(float)N;
     }
@@ -40,5 +58,14 @@ float DCT2::alphakl(int k, int l, int N) {
     }
     else {
         return 1.0f/(float)N;
+    }
+}
+
+float DCT2::alpha1D(int k, int N) {
+    if(k > 0 ) {
+        return sqrt(2.0f/(float)N);
+    }
+    else {
+        return 1.0f/sqrt((float)N);
     }
 }
