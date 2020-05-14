@@ -3,8 +3,7 @@
 
 class DCT2 {
     public:
-
-
+        float** DCT2Compute(int **matrix,int size);
 };
 
 
