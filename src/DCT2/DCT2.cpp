@@ -8,8 +8,8 @@ DCT2::DCT2matrix *DCT2::DCT2Compute(const int *matrix) {
     // consente di gestire in modo più efficente gli array in quanto alloca un unico
     // blocco di memoria l' accesso all' elemento array[i][j] può essere fatto con array[i*sizeY+j]
     const  int size = sizeof(matrix)/sizeof(matrix[0]);
-    float *c = new float[size*size];
-    float sum;
+    auto *c = new float[size*size];
+    DCT2::DCT2matrix sum;
     int l,k,i,j,N;
     N=size;
     for(k=0; k < N; k++)
@@ -20,8 +20,8 @@ DCT2::DCT2matrix *DCT2::DCT2Compute(const int *matrix) {
             {
                 for (j = 0; j < N; j++) {
                     sum += matrix[i*size+j]*
-                            cos(k*M_PI*((2.0f*(float)i+1)/2.0f*(float)N))*
-                            cos(l*M_PI*((2.0f*(float)j+1)/(2.0f*(float)N)));
+                            cos(k*M_PI*((2.0f*(DCT2::DCT2matrix)i+1)/2.0f*(DCT2::DCT2matrix)N))*
+                            cos(l*M_PI*((2.0f*(DCT2::DCT2matrix)j+1)/(2.0f*(DCT2::DCT2matrix)N)));
                 }
             }
             c[i*size+j] = alphakl(k,l,N) * sum;
