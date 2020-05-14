@@ -21,11 +21,10 @@ DCT2::DCT2matrix *DCT2::DCT2Compute2D(const int *matrix, int size) {
             for (i = 0; i < N; i++) {
                 for (j = 0; j < N; j++) {
                     sum += matrix[i*size+j]*
-                            cos(k*M_PI*((2.0f*(float)i+1.0f)/(2.0f*(float)N))) *
-                            cos(l*M_PI*((2.0f*(float)j+1.0f)/(2.0f*(float)N)));
+                            cos(k*M_PI*((2.0f*(double)i+1.0f)/(2.0f*(double)N))) *
+                            cos(l*M_PI*((2.0f*(double)j+1.0f)/(2.0f*(double)N)));
                 }
             }
-            std::cout << sum << std::endl;
             c[k*size+l] = alpha2D(k,l,N) * sum;
         }
     }
@@ -45,7 +44,7 @@ DCT2::DCT2matrix *DCT2::DCT2Compute1D(const int *array, int size) {
             for (i = 0; i < N; i++)
             {
                     sum += array[i]*
-                           cos(k*M_PI*((2.0f*(float)i+1)/(2.0f*(float)N)));
+                           cos(k*M_PI*((2.0f*(double)i+1)/(2.0f*(double)N)));
 
                 }
             c[k] = alpha1D(k,N) * sum;
@@ -54,23 +53,23 @@ DCT2::DCT2matrix *DCT2::DCT2Compute1D(const int *array, int size) {
 }
 
 ///This functions computes alphakl values
-float DCT2::alpha2D(int k, int l, int N) {
+double DCT2::alpha2D(int k, int l, int N) {
     if(k == 0 && l == 0) {
-        return 1.0f/(float)N;
+        return 1.0f/(double)N;
     }
     else if(l == 0 || k == 0) {
-        return M_SQRT2/(float)N;
+        return M_SQRT2/(double)N;
     }
     else {
-        return 2.0f/(float)N;
+        return 2.0f/(double)N;
     }
 }
 
-float DCT2::alpha1D(int k, int N) {
+double DCT2::alpha1D(int k, int N) {
     if(k > 0 ) {
-        return sqrt(2.0f/(float)N);
+        return sqrt(2.0f/(double)N);
     }
     else {
-        return 1.0f/sqrt((float)N);
+        return 1.0f/sqrt((double)N);
     }
 }
