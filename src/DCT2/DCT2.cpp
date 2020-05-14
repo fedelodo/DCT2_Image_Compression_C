@@ -25,7 +25,6 @@ DCT2::DCT2matrix *DCT2::DCT2Compute2D(const int *matrix, int size) {
                             cos(l*M_PI*((2.0f*(float)j+1.0f)/(2.0f*(float)N)));
                 }
             }
-            std::cout << sum << std::endl;
             c[k*size+l] = alpha2D(k,l,N) * sum;
         }
     }
