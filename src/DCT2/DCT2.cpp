@@ -3,11 +3,12 @@
 #include <math.h>
 #define _USE_MATH_DEFINES
 ///This function computes DCT2 of a matrix of int
-auto *DCT2::DCT2Compute(int *matrix, int size) {
+DCT2::DCT2matrix *DCT2::DCT2Compute(const int *matrix) {
     // allocando la memoria come  type *array = new type[sizeX*sizeY];
     // consente di gestire in modo più efficente gli array in quanto alloca un unico
     // blocco di memoria l' accesso all' elemento array[i][j] può essere fatto con array[i*sizeY+j]
-    auto *c = new float[size*size];
+    const  int size = sizeof(matrix)/sizeof(matrix[0]);
+    float *c = new float[size*size];
     float sum;
     int l,k,i,j,N;
     N=size;

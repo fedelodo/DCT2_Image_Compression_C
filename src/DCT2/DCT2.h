@@ -2,8 +2,9 @@
 #define DCT2_IMAGE_COMPRESSION_C_DCT2_H
 
 class DCT2 {
+    typedef float DCT2matrix;
     public:
-        auto* DCT2Compute(int *matrix,int size);
+        DCT2matrix* DCT2Compute(const int *matrix);
 
     private:
         static float alphakl(int k, int l, int N);
