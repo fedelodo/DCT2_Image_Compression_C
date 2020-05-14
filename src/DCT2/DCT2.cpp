@@ -9,7 +9,8 @@ DCT2::DCT2matrix *DCT2::DCT2Compute(const int *matrix) {
     // consente di gestire in modo più efficente gli array in quanto alloca un unico
     // blocco di memoria l' accesso all' elemento array[i][j] può essere fatto con array[i*sizeY+j]
     const  int size = sizeof(matrix)/sizeof(matrix[0]);
-    DCT2matrix *c = new DCT2matrix[size * size];
+    DCT2matrix *c;
+    c = new DCT2matrix[size * size];
     DCT2::DCT2matrix sum;
     int l,k,i,j,N;
     N=size;
