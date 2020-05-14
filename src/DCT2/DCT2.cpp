@@ -1,7 +1,8 @@
 
+#define _USE_MATH_DEFINES
+
 #include "DCT2.h"
 #include <math.h>
-#define _USE_MATH_DEFINES
 ///This function computes DCT2 of a matrix of int
 DCT2::DCT2matrix *DCT2::DCT2Compute2D(const int *matrix, int size) {
     // allocando la memoria come  type *array = new type[sizeX*sizeY];
@@ -31,7 +32,8 @@ DCT2::DCT2matrix *DCT2::DCT2Compute2D(const int *matrix, int size) {
 
 ///This function computes DCT2 of a matrix of int
 DCT2::DCT2matrix *DCT2::DCT2Compute1D(const int *array, int size) {
-    auto *c = new DCT2::DCT2matrix[size];
+    DCT2::DCT2matrix *c;
+    c = new DCT2::DCT2matrix[size];
     DCT2::DCT2matrix sum;
     int l,k,i,j,N;
     N=size;
