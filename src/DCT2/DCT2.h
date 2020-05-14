@@ -4,10 +4,10 @@
 class DCT2 {
     typedef float DCT2matrix;
     public:
-        DCT2matrix* DCT2Compute(const int *matrix);
+        static DCT2matrix* DCT2Compute(const int *matrix);
 
     private:
-        static float alphakl(int k, int l, int N);
+        static DCT2matrix alphakl(int k, int l, int N);
 };
 
 
