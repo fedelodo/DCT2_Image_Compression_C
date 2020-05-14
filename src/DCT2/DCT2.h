@@ -3,7 +3,10 @@
 
 class DCT2 {
     public:
-        float** DCT2Compute(int **matrix,int size);
+        auto* DCT2Compute(int *matrix,int size);
+
+    private:
+        static float alphakl(int k, int l, int N);
 };
 
 
