@@ -10,8 +10,9 @@ int main() {
     for (int z = 0; z < sizeof(input)/sizeof(input[0]); z++)
     {
         std::cout << *&output[z] << " ";
-        if(z != 0 && z % 7 == 0)
+        if(z != 0 && z % 7 == 0) {
             std::cout << std::endl;
+        }
     }
     return 0;
 }

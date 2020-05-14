@@ -45,7 +45,7 @@ DCT2::DCT2matrix *DCT2::DCT2Compute1D(const int *array, int size) {
             for (i = 0; i < N; i++)
             {
                     sum += array[i]*
-                           cos(k*M_PI*((2.0f*(float)i+1)/2.0f*(float)N));
+                           cos(k*M_PI*((2.0f*(float)i+1)/(2.0f*(float)N)));
 
                 }
             c[k] = alpha1D(k,N) * sum;
