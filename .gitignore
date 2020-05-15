@@ -166,3 +166,4 @@ modules.xml
 *.fatbin
 
 !/windowslib/*
+/fftw-3.3.8/
