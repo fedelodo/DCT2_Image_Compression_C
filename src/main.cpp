@@ -2,9 +2,9 @@
 #include <iostream>
 #include <fstream>
 #include <functional>
-#include "DCT2/DCT.h"
-#include <fftw3.h>
-#include "math.h"
+#include "transforms/DCT.h"
+#include "include/fftw3.h"
+#include <math.h>
 
 double *usefftw(int *input,int N){
     double *in, *out;
@@ -18,6 +18,7 @@ double *usefftw(int *input,int N){
 }
 
 int main() {
+    std::cout << "BANANA" << std::endl;
     int input[] {231, 32, 233, 161, 24, 71, 140, 245, 247, 40, 248, 245, 124, 204, 36, 107, 234, 202, 245, 167, 9, 217, 239, 173, 193, 190, 100, 167, 43, 180, 8, 70, 11, 24, 210, 177, 81, 243, 8, 112, 97, 195, 203, 47, 125, 114, 165, 181, 193, 70, 174, 167, 41, 30, 127, 245, 87, 149, 57, 192, 65, 129, 178, 228};    std::ofstream ourfunctionfile;
     std::ofstream FFTWfile;
     FFTWfile.open("fftw.csv", std::ios_base::app);

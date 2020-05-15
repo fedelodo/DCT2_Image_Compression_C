@@ -5,7 +5,7 @@
 #include <math.h>
 #include <iostream>
 
-///This function computes DCT of a matrix of int
+//This function computes DCT of a matrix of int
 DCT::result_type* DCT::DCT2Compute(const int *matrix, int size) {
     // allocando la memoria come  type *array = new type[sizeX*sizeY];
     // consente di gestire in modo più efficente gli array in quanto alloca un unico
