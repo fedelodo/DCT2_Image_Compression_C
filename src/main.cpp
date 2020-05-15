@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <functional>
-#include "DCT2/DCT2.h"
+#include "DCT2/DCT.h"
 #include <fftw3.h>
 #include "math.h"
 
@@ -24,7 +24,7 @@ int main() {
     ourfunctionfile.open("ourfunction.csv", std::ios_base::app);
     auto *output = new double[64];
     auto *output1 = new double[64];
-    output = DCT2::DCT2Compute2D(input, 8);
+    output = DCT::DCT2Compute(input, 8);
     output1 =usefftw(input, 64);
     std::cout << "ourfunc: " << std::endl;
     for (int i=0;i < (sizeof(input)/sizeof(input[0]));i++) {
