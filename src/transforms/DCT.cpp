@@ -6,7 +6,7 @@
 #include <iostream>
 
 //This function computes DCT of a matrix of int
-DCT::result_type* DCT::DCT2Compute(const int *matrix, int size) {
+DCT::result_type *DCT::DCT2Compute(const int *matrix, int size) {
     // allocando la memoria come  type *array = new type[sizeX*sizeY];
     // consente di gestire in modo più efficente gli array in quanto alloca un unico
     // blocco di memoria l' accesso all' elemento array[i][j] può essere fatto con array[i*sizeY+j]
@@ -32,7 +32,7 @@ DCT::result_type* DCT::DCT2Compute(const int *matrix, int size) {
 }
 
 ///This function computes DCT of a matrix of int
-DCT::result_type* DCT::DCT1Compute(const int *array, int size) {
+DCT::result_type *DCT::DCT1Compute(const int *array, int size) {
     DCT::result_type *c;
     c = new DCT::result_type[size];
     DCT::result_type sum;

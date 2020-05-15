@@ -3,19 +3,8 @@
 #include <fstream>
 #include <functional>
 #include "transforms/DCT.h"
-#include "include/fftw3.h"
+#include "transforms/FFT.h"
 #include <math.h>
-
-double *usefftw(int *input,int N){
-    double *in, *out;
-    out = new double[N];
-    in = (double *)input;
-    fftw_plan my_plan;
-    my_plan = fftw_plan_r2r_1d(N, in, out, FFTW_REDFT10, FFTW_ESTIMATE);
-    fftw_execute(my_plan);
-    fftw_destroy_plan(my_plan);
-    return out;
-}
 
 int main() {
     std::cout << "BANANA" << std::endl;
@@ -26,7 +15,7 @@ int main() {
     auto *output = new double[64];
     auto *output1 = new double[64];
     output = DCT::DCT2Compute(input, 8);
-    output1 =usefftw(input, 64);
+    output1 = FFT::FFTWCompute(input, 64);
     std::cout << "ourfunc: " << std::endl;
     for (int i=0;i < (sizeof(input)/sizeof(input[0]));i++) {
         std::cout << output[i] << std::endl;
