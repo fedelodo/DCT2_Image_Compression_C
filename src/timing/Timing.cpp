@@ -1,6 +1,7 @@
 #include "Timing.h"
 #include <chrono>
 #include <random>
+#include <fstream>
 
 std::vector<int> Timing::getResults() {
     return this->_results;
@@ -22,7 +23,6 @@ void Timing::computeResult()  {
 
 Timing::inputsType Timing::generateInputs(int samples) {
     inputsType inputs(samples);
-
     for(int i = 0; i <= samples; ++i) {
         int matSize = i+1;
         int *matrix = Timing::generateRandomMatrix(matSize);
@@ -46,5 +46,15 @@ int *Timing::generateRandomMatrix(int N) {
 }
 
 void Timing::generateCSV(std::string filename) {
-
+    std::ofstream file;
+    file.open (filename);
+    std::vector<int> times = Timing::getResults();
+    bool first = true;
+    file << "Times," << std::endl;
+    for (float t : times)
+    {
+        if (!first) { file << "," << std::endl; }
+        first = false;
+        file << t;
+    }
 }

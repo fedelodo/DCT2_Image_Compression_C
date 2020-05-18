@@ -6,11 +6,12 @@
 #include "timing/Timing.h"
 
 int main() {
-    int samples = 10;
+    int samples = 1000;
     Timing::inputsType inputs = Timing::generateInputs(samples);
     Timing dtc2Time(DCT::DCT2Compute, inputs);
     Timing fftTime(FFT::FFTWCompute, inputs);
-
+    dtc2Time.generateCSV("DCT2.csv");
+    fftTime.generateCSV("fftw.csv");
 //    for (int i = 0; i<inputs.size(); i++) {
 //        int *print = inputs.at(i);
 //        std::cout << "VECTOR: " << i << " " << std::endl;
