@@ -3,7 +3,7 @@ project(DCT2)               # Create project "simple_example"
 set(CMAKE_CXX_STANDARD 14)            # Enable c++14 standard
 
 # Add main.cpp file of project root directory as source file
-set(SOURCE_FILES src/transforms/DCT.cpp src/main.cpp src/transforms/FFT.cpp src/transforms/FFT.h)
+set(SOURCE_FILES src/transforms/DCT.cpp src/main.cpp src/transforms/FFT.cpp src/transforms/FFT.h src/timing/Timing.cpp src/timing/Timing.h)
 # Add executable target with source files listed in SOURCE_FILES variable
 
 set( FFTW3_DIR fftw-3.3.8)
