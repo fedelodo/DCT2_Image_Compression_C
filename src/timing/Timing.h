@@ -9,7 +9,7 @@ class Timing {
 public:
     typedef std::vector<int*> inputsType;
     Timing(double*(*funcParam)(const int *matrix, int size), const inputsType &input) : _funcParam(funcParam), _inputs(input) {
-        computeResult()
+        computeResult();
     };
     std::vector<int> getResults();
     void generateCSV(std::string filename);
