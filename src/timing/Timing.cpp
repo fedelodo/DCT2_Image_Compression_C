@@ -50,11 +50,13 @@ void Timing::generateCSV(std::string filename) {
     file.open (filename);
     std::vector<int> times = Timing::getResults();
     bool first = true;
-    file << "Times," << std::endl;
+    int size = 1;
+    file << "Size,Times," << std::endl;
     for (float t : times)
     {
         if (!first) { file << "," << std::endl; }
         first = false;
-        file << t;
+        file << size << "," << t;
+        ++size;
     }
 }
