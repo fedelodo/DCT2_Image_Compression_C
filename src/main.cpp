@@ -6,11 +6,15 @@
 #include "timing/Timing.h"
 
 int main() {
-    int samples = 10;
-    Timing::inputsType inputs = Timing::generateInputs(samples, 1);
+    int samples = 100;
+    std::cout << "Generating Sample matrix...";
+    Timing::inputsType inputs = Timing::generateInputs(samples);
     Timing dtc2Time(DCT::DCT2Compute, inputs);
     Timing fftTime(FFT::FFTWCompute, inputs);
-
+    std::cout << "Computing our DCT2 time...";
+    dtc2Time.generateCSV("DCT2.csv");
+    std::cout << "Computing fftw time..";
+    fftTime.generateCSV("fftw.csv");
 //    for (int i = 0; i<inputs.size(); i++) {
 //        int *print = inputs.at(i);
 //        std::cout << "VECTOR: " << i << " " << std::endl;

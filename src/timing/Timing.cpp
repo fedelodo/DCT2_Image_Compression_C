@@ -1,6 +1,7 @@
 #include "Timing.h"
 #include <chrono>
 #include <random>
+#include <fstream>
 
 std::vector<int> Timing::getResults() {
     return this->_results;
@@ -13,17 +14,16 @@ void Timing::computeResult()  {
         auto start = std::chrono::high_resolution_clock::now();
         _funcParam(matrix, i+1);
         auto stop = std::chrono::high_resolution_clock::now();
+
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
         int time = duration.count();
-
         _results.push_back(time);
     }
 }
 
-Timing::inputsType Timing::generateInputs(int samples, int resolution) {
+Timing::inputsType Timing::generateInputs(int samples) {
     inputsType inputs(samples);
-
-    for(int i = 0; i <= samples; i+=resolution) {
+    for(int i = 0; i <= samples; ++i) {
         int matSize = i+1;
         int *matrix = Timing::generateRandomMatrix(matSize);
         inputs.assign(i, matrix);
@@ -46,5 +46,17 @@ int *Timing::generateRandomMatrix(int N) {
 }
 
 void Timing::generateCSV(std::string filename) {
-
+    std::ofstream file;
+    file.open (filename);
+    std::vector<int> times = Timing::getResults();
+    bool first = true;
+    int size = 1;
+    file << "Size,Times," << std::endl;
+    for (float t : times)
+    {
+        if (!first) { file << "," << std::endl; }
+        first = false;
+        file << size << "," << t;
+        ++size;
+    }
 }
