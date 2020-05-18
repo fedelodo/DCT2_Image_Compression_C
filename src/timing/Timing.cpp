@@ -59,7 +59,7 @@ void Timing::generateCSV(std::string filename) {
     file << "Size,Times," << std::endl;
     for (float t : times)
     {
-        if (!first) { file << "," << std::endl; }
+        if (!first) { file << std::endl; }
         first = false;
         file << size << "," << t;
         ++size;
