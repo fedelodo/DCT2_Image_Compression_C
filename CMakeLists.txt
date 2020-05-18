@@ -7,6 +7,8 @@ set(SOURCE_FILES src/transforms/DCT.cpp src/main.cpp src/transforms/FFT.cpp src/
 # Add executable target with source files listed in SOURCE_FILES variable
 
 set( FFTW3_DIR fftw-3.3.8)
+set(LIBRARY_OUTPUT_PATH "${CMAKE_BINARY_DIR}")
+set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}")
 add_subdirectory(${FFTW3_DIR})
 
 add_executable(DCT2 ${SOURCE_FILES})
