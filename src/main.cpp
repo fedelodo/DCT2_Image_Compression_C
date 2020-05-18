@@ -1,12 +1,10 @@
 #include <iostream>
-#include <fstream>
-#include <functional>
 #include "transforms/DCT.h"
 #include "transforms/FFT.h"
 #include "timing/Timing.h"
 
 int main() {
-    int samples = 100;
+    int samples = 500;
     std::cout << "Generating Sample matrix...";
     Timing::inputsType inputs = Timing::generateInputs(samples);
     Timing dtc2Time(DCT::DCT2Compute, inputs);
@@ -15,6 +13,7 @@ int main() {
     dtc2Time.generateCSV("DCT2.csv");
     std::cout << "Computing fftw time..";
     fftTime.generateCSV("fftw.csv");
+    std::cout << "Done";
 //    for (int i = 0; i<inputs.size(); i++) {
 //        int *print = inputs.at(i);
 //        std::cout << "VECTOR: " << i << " " << std::endl;

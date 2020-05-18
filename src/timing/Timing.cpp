@@ -2,13 +2,16 @@
 #include <chrono>
 #include <random>
 #include <fstream>
+#include <iostream>
 
 std::vector<int> Timing::getResults() {
     return this->_results;
 }
 
 void Timing::computeResult()  {
+    std::cout << "Computing" << std::endl;
     for(int i = 0; i < this->_inputs.size(); ++i) {
+        std::cout << i << std::endl;
         int *matrix = this->_inputs.at(i);
 
         auto start = std::chrono::high_resolution_clock::now();
@@ -23,7 +26,9 @@ void Timing::computeResult()  {
 
 Timing::inputsType Timing::generateInputs(int samples) {
     inputsType inputs(samples);
+    std::cout << "Generating input matrix" << std::endl;
     for(int i = 0; i <= samples; ++i) {
+        std::cout << i << std::endl;
         int matSize = i+1;
         int *matrix = Timing::generateRandomMatrix(matSize);
         inputs.assign(i, matrix);
@@ -47,7 +52,7 @@ int *Timing::generateRandomMatrix(int N) {
 
 void Timing::generateCSV(std::string filename) {
     std::ofstream file;
-    file.open (filename);
+    file.open (filename, std::ofstream::trunc);
     std::vector<int> times = Timing::getResults();
     bool first = true;
     int size = 1;
@@ -59,4 +64,5 @@ void Timing::generateCSV(std::string filename) {
         file << size << "," << t;
         ++size;
     }
+    file.close();
 }
