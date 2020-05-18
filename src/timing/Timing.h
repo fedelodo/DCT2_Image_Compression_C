@@ -3,21 +3,48 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
+#include <map>
 
 
 class Timing {
 public:
-    typedef std::vector<int*> inputsType;
+    struct inputsType{
+        std::vector<int*> _matrices;
+        int _resolution;
+        inputsType(std::vector<int*> inputs, int resolution) : _matrices(inputs), _resolution(resolution) {}
+
+        void print() {
+            for (int i = 0; i < this->_matrices.size(); i++) {
+                int *print = this->_matrices.at(i);
+                int index = (i * _resolution) + 1;
+                std::cout << std::endl << "MATRIX: " << i+1 << " - " << index << " " << std::endl;
+                int matSize = index * index;
+                for (int j = 0; j < matSize; j++) {
+                    std::cout << print[j] << " " ;
+                    if(((j+1) % (index) == 0)) {
+                        std::cout << std::endl;
+                    }
+                }
+            }
+        }
+    };
+
     Timing(double*(*funcParam)(const int *matrix, int size), const inputsType &input) : _funcParam(funcParam), _inputs(input) {
         computeResult();
     };
-    std::vector<int> getResults();
+    std::map<int, int> getResults();
     void generateCSV(std::string filename);
 
-    static inputsType generateInputs(int samples);
+    static inputsType generateInputs(int samples, int resolution);
 
+    ~Timing() {
+//        delete &_results;
+//        delete &_inputs;
+//        delete &_funcParam;
+    }
 private:
-    std::vector<int> _results;
+    std::map<int, int> _results;
     inputsType _inputs;
     double *(*_funcParam)(const int *matrix, int size);
 

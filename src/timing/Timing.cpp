@@ -4,36 +4,41 @@
 #include <fstream>
 #include <iostream>
 
-std::vector<int> Timing::getResults() {
+std::map<int, int> Timing::getResults() {
     return this->_results;
 }
 
 void Timing::computeResult()  {
     std::cout << "Computing" << std::endl;
-    for(int i = 0; i < this->_inputs.size(); ++i) {
-        std::cout << i << std::endl;
-        int *matrix = this->_inputs.at(i);
+    std::vector<int*> input = _inputs._matrices;
+    for(int i = 0; i < input.size(); ++i) {
+        int *matrix = input.at(i);
+        int index = (i * _inputs._resolution) + 1;
 
         auto start = std::chrono::high_resolution_clock::now();
-        _funcParam(matrix, i+1);
+        _funcParam(matrix, index);
         auto stop = std::chrono::high_resolution_clock::now();
 
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
         int time = duration.count();
-        _results.push_back(time);
+        std::cout << "Computing " << index << "x" << index << std::endl;
+        _results.emplace(index, time);
     }
 }
 
-Timing::inputsType Timing::generateInputs(int samples) {
-    inputsType inputs(samples);
+Timing::inputsType Timing::generateInputs(int samples, int resolution) {
+    std::vector<int*> inputs;
     std::cout << "Generating input matrix" << std::endl;
-    for(int i = 0; i <= samples; ++i) {
-        std::cout << i << std::endl;
-        int matSize = i+1;
+    for(int i = 0; i < (int)(samples/resolution); ++i) {
+        int matSize = (i*resolution)+1;
+        std::cout << "Generating: " << matSize << "x" << matSize << std::endl;
         int *matrix = Timing::generateRandomMatrix(matSize);
-        inputs.assign(i, matrix);
+        inputs.push_back(matrix);
+
+        delete matrix;
     }
-    return inputs;
+    std::cout << std::endl;
+    return inputsType(inputs, resolution);
 }
 
 int *Timing::generateRandomMatrix(int N) {
@@ -52,17 +57,12 @@ int *Timing::generateRandomMatrix(int N) {
 
 void Timing::generateCSV(std::string filename) {
     std::ofstream file;
-    file.open (filename, std::ofstream::trunc);
-    std::vector<int> times = Timing::getResults();
-    bool first = true;
-    int size = 1;
-    file << "Size,Times," << std::endl;
-    for (float t : times)
-    {
-        if (!first) { file << std::endl; }
-        first = false;
-        file << size << "," << t;
-        ++size;
+    file.open (filename, std::ofstream::trunc);//TODO: Check file open
+    std::map<int, int> times = this->getResults();
+
+    file << "Size;Times";
+    for(std::map<int,int>::iterator it = times.begin(); it != times.end(); ++it) {
+        file << std::endl << std::to_string(it->first) << ";" << std::to_string(it->second);
     }
     file.close();
 }
