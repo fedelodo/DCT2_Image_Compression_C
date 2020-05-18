@@ -14,7 +14,7 @@ public:
     std::vector<int> getResults();
     void generateCSV(std::string filename);
 
-    static inputsType generateInputs(int samples);
+    static inputsType generateInputs(int samples, int resolution);
 
 private:
     std::vector<int> _results;

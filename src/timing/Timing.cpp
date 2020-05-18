@@ -13,17 +13,17 @@ void Timing::computeResult()  {
         auto start = std::chrono::high_resolution_clock::now();
         _funcParam(matrix, i+1);
         auto stop = std::chrono::high_resolution_clock::now();
-
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
         int time = duration.count();
+
         _results.push_back(time);
     }
 }
 
-Timing::inputsType Timing::generateInputs(int samples) {
+Timing::inputsType Timing::generateInputs(int samples, int resolution) {
     inputsType inputs(samples);
 
-    for(int i = 0; i <= samples; ++i) {
+    for(int i = 0; i <= samples; i+=resolution) {
         int matSize = i+1;
         int *matrix = Timing::generateRandomMatrix(matSize);
         inputs.assign(i, matrix);

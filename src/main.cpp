@@ -7,7 +7,7 @@
 
 int main() {
     int samples = 10;
-    Timing::inputsType inputs = Timing::generateInputs(samples);
+    Timing::inputsType inputs = Timing::generateInputs(samples, 1);
     Timing dtc2Time(DCT::DCT2Compute, inputs);
     Timing fftTime(FFT::FFTWCompute, inputs);
 
