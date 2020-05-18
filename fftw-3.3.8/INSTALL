@@ -32,7 +32,7 @@ debugging `configure').
 
    It can also use an optional file (typically called `config.cache'
 and enabled with `--cache-file=config.cache' or simply `-C') that saves
-the results of its tests to speed up reconfiguring.  Caching is
+the _results of its tests to speed up reconfiguring.  Caching is
 disabled by default to prevent problems with accidental use of stale
 cache files.
 
@@ -40,7 +40,7 @@ cache files.
 to figure out how `configure' could check whether to do them, and mail
 diffs or instructions to the address given in the `README' so they can
 be considered for the next release.  If you are using the cache, and at
-some point `config.cache' contains results you don't want to keep, you
+some point `config.cache' contains _results you don't want to keep, you
 may remove or edit it.
 
    The file `configure.ac' (or `configure.in') is used to create
@@ -135,7 +135,7 @@ this:
                  CPP="gcc -E" CXXCPP="g++ -E"
 
    This is not guaranteed to produce working output in all cases, you
-may have to build one architecture at a time and combine the results
+may have to build one architecture at a time and combine the _results
 using the `lipo' tool if you have problems.
 
 Installation Names
@@ -337,7 +337,7 @@ operates.
      script, and exit.
 
 `--cache-file=FILE'
-     Enable the cache: use and save the results of the tests in FILE,
+     Enable the cache: use and save the _results of the tests in FILE,
      traditionally `config.cache'.  FILE defaults to `/dev/null' to
      disable caching.
 

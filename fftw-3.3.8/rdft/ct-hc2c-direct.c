@@ -75,7 +75,7 @@ static void apply_extra_iter(const plan *ego_, R *cr, R *ci)
 	     even vector length MM-1, and then execute the last
 	     iteration as a 2-vector with vector stride 0.  The
 	     twiddle factors of the second half of the last iteration
-	     are bogus, but we only store the results of the first
+	     are bogus, but we only store the _results of the first
 	     half. */
 	  ego->k(cr + ms, ci + ms, cr + (m-1)*ms, ci + (m-1)*ms,
 		 ego->td->W, ego->rs, 1, mm, ms);

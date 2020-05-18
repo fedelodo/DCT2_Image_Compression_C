@@ -21,9 +21,9 @@ the algorithm?</a>
 <li><a href="#slows" rel=subdocument>Q3.4. FFTW slows down after repeated calls.</a>
 <li><a href="#segfault" rel=subdocument>Q3.5. An FFTW routine is crashing when I call it.</a>
 <li><a href="#fortran64" rel=subdocument>Q3.6. My Fortran program crashes when calling FFTW.</a>
-<li><a href="#conventions" rel=subdocument>Q3.7. FFTW gives results different from my old
+<li><a href="#conventions" rel=subdocument>Q3.7. FFTW gives _results different from my old
 FFT.</a>
-<li><a href="#nondeterministic" rel=subdocument>Q3.8. FFTW gives different results between runs</a>
+<li><a href="#nondeterministic" rel=subdocument>Q3.8. FFTW gives different _results between runs</a>
 <li><a href="#savePlans" rel=subdocument>Q3.9. Can I save FFTW's plans?</a>
 <li><a href="#whyscaled" rel=subdocument>Q3.10. Why does your inverse transform return a scaled
 result?</a>
@@ -136,7 +136,7 @@ plans in variables large enough to hold a pointer, for example
 <code>integer*8</code>.  We recommend using <code>integer*8</code> on 32-bit machines as well, to simplify porting. 
 
 <h2><A name="conventions">
-Question 3.7.  FFTW gives results different from my old
+Question 3.7.  FFTW gives _results different from my old
 FFT.
 </A></h2>
 
@@ -152,22 +152,22 @@ transform.  See <A href="#whyscaled">Q3.10 `Why does your inverse transform retu
 result?'</A>.  
 <p>
 Finally, note that floating-point arithmetic is not exact, so
-different FFT algorithms will give slightly different results (on the
+different FFT algorithms will give slightly different _results (on the
 order of the numerical accuracy; typically a fractional difference of
 1e-15 or so in double precision).  
 <h2><A name="nondeterministic">
-Question 3.8.  FFTW gives different results between
+Question 3.8.  FFTW gives different _results between
 runs
 </A></h2>
 
 If you use <code>FFTW_MEASURE</code> or <code>FFTW_PATIENT</code> mode, then the algorithm FFTW employs is not deterministic: it depends on
-runtime performance measurements.  This will cause the results to vary
+runtime performance measurements.  This will cause the _results to vary
 slightly from run to run.  However, the differences should be slight,
 on the order of the floating-point precision, and therefore should
 have no practical impact on most applications. 
 
 <p>
-If you use saved plans (wisdom) or <code>FFTW_ESTIMATE</code> mode, however, then the algorithm is deterministic and the results should be
+If you use saved plans (wisdom) or <code>FFTW_ESTIMATE</code> mode, however, then the algorithm is deterministic and the _results should be
 identical between runs.  
 <h2><A name="savePlans">
 Question 3.9.  Can I save FFTW's plans?

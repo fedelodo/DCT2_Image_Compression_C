@@ -9,7 +9,7 @@
 
 class FFT {
 public:
-    static double *FFTWCompute(int *input,int N);
+    static double *FFTWCompute(const int *input,int N);
 };
 
 

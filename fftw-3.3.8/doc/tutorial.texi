@@ -140,7 +140,7 @@ void fftw_execute(const fftw_plan plan);
 @end example
 @findex fftw_execute
 
-The DFT results are stored in-order in the array @code{out}, with the
+The DFT _results are stored in-order in the array @code{out}, with the
 zero-frequency (DC) component in @code{out[0]}.
 @cindex frequency
 If @code{in != out}, the transform is @dfn{out-of-place} and the input
@@ -167,7 +167,7 @@ forbid, @code{delete}.
 @findex fftw_free
 
 FFTW computes an @emph{unnormalized} DFT.  Thus, computing a forward
-followed by a backward transform (or vice versa) results in the original
+followed by a backward transform (or vice versa) _results in the original
 array scaled by @code{n}.  For the definition of the DFT, see @ref{What
 FFTW Really Computes}.
 @cindex DFT
@@ -683,7 +683,7 @@ interface (@pxref{Multi-Dimensional DFTs of Real Data}).
 
 The Fourier transform of a real-even function @math{f(-x) = f(x)} is
 real-even, and @math{i} times the Fourier transform of a real-odd
-function @math{f(-x) = -f(x)} is real-odd.  Similar results hold for a
+function @math{f(-x) = -f(x)} is real-odd.  Similar _results hold for a
 discrete Fourier transform, and thus for these symmetries the need for
 complex inputs/outputs is entirely eliminated.  Moreover, one gains a
 factor of two in speed/space from the fact that the data are real, and

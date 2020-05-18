@@ -6447,7 +6447,7 @@ commit 188c9dde71d0bc56ba30a052b82d02b6676f20ed
 Author: stevenj <stevenj@fftw.org>
 Date:   Thu Aug 31 19:33:29 2006 -0400
 
-    I'm sick of answering this question about non-deterministic results
+    I'm sick of answering this question about non-deterministic _results
     [empty commit message]
 
 commit 336fb6116c43aa5559392ea2d0759606efd6f275
@@ -7671,7 +7671,7 @@ Date:   Sun Jan 8 11:44:52 2006 -0500
       is conservative and does not introduce too much register pressure.
     
     * enabled for simd fma code, under the assumption that this will run
-      on altivec.  The latency of 8 seems to produce the best results.
+      on altivec.  The latency of 8 seems to produce the best _results.
 
 commit 1e7e0cd308f67033c681c0ae52836283f874fe51
 Author: Steven G. Johnson <stevenj@fftw.org>
@@ -10943,7 +10943,7 @@ Date:   Thu Jul 3 16:47:42 2003 -0400
     pipeline utilization, and the worst possible register pressure.
     
     The ``specified size'' defaults to 0, i.e., no change from fftw2 and
-    fftw-3.0.  It seems like a value of 7--10 produces the best results
+    fftw-3.0.  It seems like a value of 7--10 produces the best _results
     for Pentium IV (probably screwing the G3/G4 powerpcs and sparc, but I
     haven't tried.)  As time goes by, we may want to increase this number
     to favor newer processors over older processors.

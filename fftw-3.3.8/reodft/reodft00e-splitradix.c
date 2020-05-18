@@ -80,7 +80,7 @@ static void apply_e(const plan *ego_, R *I, R *O)
 	       cld->apply((plan *) cld, I, O);
 	  }
 
-	  /* combine the results with the twiddle factors to get output */
+	  /* combine the _results with the twiddle factors to get output */
 	  { /* DC element */
 	       E b20 = O[0], b0 = K(2.0) * buf[0];
 	       O[0] = b20 + b0;
@@ -167,7 +167,7 @@ static void apply_o(const plan *ego_, R *I, R *O)
 		    cld->apply((plan *) cld, I + is, O);
 	  }
 
-	  /* combine the results with the twiddle factors to get output */
+	  /* combine the _results with the twiddle factors to get output */
 	  O[(n2-1)*os] = K(2.0) * buf[0];
 	  for (i = 1; i < n2 - i; ++i) {
 	       E ap, am, br, bi, wr, wi, wbr, wbi;

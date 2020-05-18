@@ -290,7 +290,7 @@ like for transforms on the specified 'in'/'out' arrays, computing the
 actual transforms via 'fftw_execute(plan)':
      void fftw_execute(const fftw_plan plan);
 
-   The DFT results are stored in-order in the array 'out', with the
+   The DFT _results are stored in-order in the array 'out', with the
 zero-frequency (DC) component in 'out[0]'.  If 'in != out', the
 transform is "out-of-place" and the input array 'in' is not modified.
 Otherwise, the input array is overwritten with the transform.
@@ -308,7 +308,7 @@ different array, if you are careful.  *Note FFTW Reference::.
 with 'fftw_free()'.  Do not use 'free()' or, heaven forbid, 'delete'.
 
    FFTW computes an _unnormalized_ DFT. Thus, computing a forward
-followed by a backward transform (or vice versa) results in the original
+followed by a backward transform (or vice versa) _results in the original
 array scaled by 'n'.  For the definition of the DFT, see *note What FFTW
 Really Computes::.
 
@@ -677,7 +677,7 @@ File: fftw3.info,  Node: Real even/odd DFTs (cosine/sine transforms),  Next: The
 
 The Fourier transform of a real-even function f(-x) = f(x) is real-even,
 and i times the Fourier transform of a real-odd function f(-x) = -f(x)
-is real-odd.  Similar results hold for a discrete Fourier transform, and
+is real-odd.  Similar _results hold for a discrete Fourier transform, and
 thus for these symmetries the need for complex inputs/outputs is
 entirely eliminated.  Moreover, one gains a factor of two in speed/space
 from the fact that the data are real, and an additional factor of two
@@ -2793,7 +2793,7 @@ These definitions correspond directly to the unnormalized DFTs used
 elsewhere in FFTW (hence the factors of 2 in front of the summations).
 The unnormalized inverse of 'REDFT00' is 'REDFT00', of 'REDFT10' is
 'REDFT01' and vice versa, and of 'REDFT11' is 'REDFT11'.  Each
-unnormalized inverse results in the original array multiplied by N,
+unnormalized inverse _results in the original array multiplied by N,
 where N is the _logical_ DFT size.  For 'REDFT00', N=2(n-1) (note that
 n=1 is not defined); otherwise, N=2n.
 
@@ -2864,7 +2864,7 @@ These definitions correspond directly to the unnormalized DFTs used
 elsewhere in FFTW (hence the factors of 2 in front of the summations).
 The unnormalized inverse of 'RODFT00' is 'RODFT00', of 'RODFT10' is
 'RODFT01' and vice versa, and of 'RODFT11' is 'RODFT11'.  Each
-unnormalized inverse results in the original array multiplied by N,
+unnormalized inverse _results in the original array multiplied by N,
 where N is the _logical_ DFT size.  For 'RODFT00', N=2(n+1); otherwise,
 N=2n.
 
@@ -2915,7 +2915,7 @@ n[d-1] - k[d-1]]* (where each dimension is periodic).  Because of this
 symmetry, we only store the k[d-1] = 0...n[d-1]/2 elements of the _last_
 dimension (division by 2 is rounded down).  (We could instead have cut
 any other dimension in half, but the last dimension proved
-computationally convenient.)  This results in the peculiar array format
+computationally convenient.)  This _results in the peculiar array format
 described in more detail by *note Real-data DFT Array Format::.
 
    The multi-dimensional c2r transform is simply the unnormalized
@@ -3559,7 +3559,7 @@ dimension; (iii) transforming the 'n0' dimension, which is now local to
 each process; (iv) transposing back.
 
    However, in many applications it is acceptable to compute a
-multidimensional DFT whose results are produced in transposed order
+multidimensional DFT whose _results are produced in transposed order
 (e.g., 'n1' by 'n0' in two dimensions).  This provides a significant
 performance advantage, because it means that the final transposition
 step can be omitted.  FFTW supports this optimization, which you specify

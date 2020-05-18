@@ -1146,7 +1146,7 @@ m4_defun([_LT_DARWIN_LINKER_FEATURES],
 # the location of the communication and MPI libs are included too.
 # If we don't find anything, use the default library path according
 # to the aix ld manual.
-# Store the results from the different compilers for each TAGNAME.
+# Store the _results from the different compilers for each TAGNAME.
 # Allow to override them for all tags through lt_cv_aix_libpath.
 m4_defun([_LT_SYS_MODULE_PATH_AIX],
 [m4_require([_LT_DECL_SED])dnl
@@ -5432,7 +5432,7 @@ _LT_EOF
 
       # When large executables or shared objects are built, AIX ld can
       # have problems creating the table of contents.  If linking a library
-      # or program results in "error TOC overflow" add -mminimal-toc to
+      # or program _results in "error TOC overflow" add -mminimal-toc to
       # CXXFLAGS/CFLAGS for g++/gcc.  In the cases where that is not
       # enough to fix the problem, add -Wl,-bbigtoc to LDFLAGS.
 
@@ -6504,7 +6504,7 @@ if test yes != "$_lt_caught_CXX_error"; then
 
         # When large executables or shared objects are built, AIX ld can
         # have problems creating the table of contents.  If linking a library
-        # or program results in "error TOC overflow" add -mminimal-toc to
+        # or program _results in "error TOC overflow" add -mminimal-toc to
         # CXXFLAGS/CFLAGS for g++/gcc.  In the cases where that is not
         # enough to fix the problem, add -Wl,-bbigtoc to LDFLAGS.
 

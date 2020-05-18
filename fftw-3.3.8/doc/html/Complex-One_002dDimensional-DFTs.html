@@ -182,7 +182,7 @@ computing the actual transforms via <code>fftw_execute(plan)</code>:
 </pre></div>
 <a name="index-fftw_005fexecute"></a>
 
-<p>The DFT results are stored in-order in the array <code>out</code>, with the
+<p>The DFT _results are stored in-order in the array <code>out</code>, with the
 zero-frequency (DC) component in <code>out[0]</code>.
 <a name="index-frequency"></a>
 If <code>in != out</code>, the transform is <em>out-of-place</em> and the input
@@ -209,7 +209,7 @@ forbid, <code>delete</code>.
 <a name="index-fftw_005ffree"></a>
 </p>
 <p>FFTW computes an <em>unnormalized</em> DFT.  Thus, computing a forward
-followed by a backward transform (or vice versa) results in the original
+followed by a backward transform (or vice versa) _results in the original
 array scaled by <code>n</code>.  For the definition of the DFT, see <a href="What-FFTW-Really-Computes.html#What-FFTW-Really-Computes">What FFTW Really Computes</a>.
 <a name="index-DFT-1"></a>
 <a name="index-normalization"></a>

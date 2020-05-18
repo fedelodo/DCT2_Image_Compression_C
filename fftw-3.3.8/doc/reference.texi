@@ -2136,7 +2136,7 @@ These definitions correspond directly to the unnormalized DFTs used
 elsewhere in FFTW (hence the factors of @math{2} in front of the
 summations).  The unnormalized inverse of @code{REDFT00} is
 @code{REDFT00}, of @code{REDFT10} is @code{REDFT01} and vice versa, and
-of @code{REDFT11} is @code{REDFT11}.  Each unnormalized inverse results
+of @code{REDFT11} is @code{REDFT11}.  Each unnormalized inverse _results
 in the original array multiplied by @math{N}, where @math{N} is the
 @emph{logical} DFT size.  For @code{REDFT00}, @math{N=2(n-1)} (note that
 @math{n=1} is not defined); otherwise, @math{N=2n}.
@@ -2287,7 +2287,7 @@ These definitions correspond directly to the unnormalized DFTs used
 elsewhere in FFTW (hence the factors of @math{2} in front of the
 summations).  The unnormalized inverse of @code{RODFT00} is
 @code{RODFT00}, of @code{RODFT10} is @code{RODFT01} and vice versa, and
-of @code{RODFT11} is @code{RODFT11}.  Each unnormalized inverse results
+of @code{RODFT11} is @code{RODFT11}.  Each unnormalized inverse _results
 in the original array multiplied by @math{N}, where @math{N} is the
 @emph{logical} DFT size.  For @code{RODFT00}, @math{N=2(n+1)};
 otherwise, @math{N=2n}.
@@ -2433,7 +2433,7 @@ k[d-1] = 0...n[d-1]/2
 @end ifinfo
 elements of the @emph{last} dimension (division by @math{2} is rounded
 down).  (We could instead have cut any other dimension in half, but the
-last dimension proved computationally convenient.)  This results in the
+last dimension proved computationally convenient.)  This _results in the
 peculiar array format described in more detail by @ref{Real-data DFT
 Array Format}.
 

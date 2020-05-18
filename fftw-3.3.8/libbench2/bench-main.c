@@ -61,7 +61,7 @@ int bench_main(int argc, char *argv[])
      int repeat = 0;
      int rounds = 10;
      int iarounds = 0;
-     int arounds = 1; /* this is too low for precise results */
+     int arounds = 1; /* this is too low for precise _results */
      int c;
 
      report = report_verbose; /* default */
