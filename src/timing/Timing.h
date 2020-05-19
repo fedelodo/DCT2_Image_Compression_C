@@ -28,6 +28,11 @@ public:
                 }
             }
         }
+//        ~inputsType() {
+//            for(int *matrix : _matrices) {
+//                delete matrix;
+//            }
+//        }
     };
 
     Timing(double*(*funcParam)(const int *matrix, int size), const inputsType &input) : _funcParam(funcParam), _inputs(input) {
