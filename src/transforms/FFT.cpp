@@ -2,15 +2,21 @@
 // Created by emagi on 15/05/2020.
 //
 
+#include <algorithm>
 #include "FFT.h"
 
 double *FFT::FFTWCompute(const int *input, int N) {
-    double *in, *out;
     int arraySize = N*N;
+    double in[arraySize], *out;
     out = new double[arraySize];
-    in = (double *)input;
+
+    //std::copy(input, input + arraySize, in);//BROKEN AF
+    for(int i = 0; i<arraySize; ++i) {
+        in[i] = (double)input[i];
+    }
+
     fftw_plan my_plan;
-    my_plan = fftw_plan_r2r_1d(arraySize, in, out, FFTW_REDFT10, FFTW_ESTIMATE);
+    my_plan = fftw_plan_r2r_2d(N, N, in, out, FFTW_REDFT10, FFTW_REDFT10, FFTW_ESTIMATE);
     fftw_execute(my_plan);
     fftw_destroy_plan(my_plan);
     return out;
