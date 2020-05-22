@@ -1,8 +1,3 @@
-//
-// Created by emagi on 15/05/2020.
-//
-
-#include <algorithm>
 #include "FFT.h"
 
 double *FFT::FFTWCompute(const int *input, int N) {
