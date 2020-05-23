@@ -31,7 +31,7 @@ double *DCT::DCT2Compute(const int *matrix, int size) {
     return c;
 }
 
-///This function computes DCT of a matrix of int
+//This function computes DCT of a matrix of int
 double *DCT::DCT1Compute(const int *array, int size) {
     double *c;
     c = new double[size];
