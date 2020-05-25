@@ -16,9 +16,12 @@ void Timing::computeResult()  {
         int index = (i * _inputs._resolution) + 1;
 
         auto start = std::chrono::high_resolution_clock::now();
-//        _funcParam(matrix, index);
-        double * result = _funcParam(matrix, index);
+        double *result = _funcParam(matrix, index);
         auto stop = std::chrono::high_resolution_clock::now();
+
+//        for (int j = 0; j < *(&result + 1) - result; j++) {
+//            std::cout << result[j] << " " ;
+//        }
         delete[] result;
 
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
