@@ -49,7 +49,7 @@ double *DCT::DCT1Compute(const int *array, int size) {
     return c;
 }
 
-///This functions computes alphakl values
+//This functions computes alpha_kl values
 double DCT::alpha2D(int k, int l, int N) {
     if(k == 0 && l == 0) {
         return 1/(double)N;

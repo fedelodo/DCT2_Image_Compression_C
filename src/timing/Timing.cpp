@@ -36,8 +36,6 @@ Timing::inputsType Timing::generateInputs(int samples, int resolution) {
         std::cout << "Generating: " << matSize << "x" << matSize << std::endl;
         int *matrix = Timing::generateRandomMatrix(matSize);
         inputs.push_back(matrix);
-
-//        delete[] matrix;
     }
     std::cout << std::endl;
     return inputsType(inputs, resolution);

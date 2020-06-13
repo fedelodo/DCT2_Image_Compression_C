@@ -5,7 +5,6 @@ double *FFT::FFTWCompute(const int *input, int N) {
     double in[arraySize], *out;
     out = new double[arraySize];
 
-    //std::copy(input, input + arraySize, in);//BROKEN AF
     for(int i = 0; i<arraySize; ++i) {
         in[i] = (double)input[i];
     }

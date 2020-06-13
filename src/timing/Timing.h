@@ -6,7 +6,15 @@
 #include <iostream>
 #include <map>
 
-
+/*
+ *  The Timing class is build to measure the performance of any function that can receive an int matrix as input.
+ *  It can be used by passing a function pointer of the function that you want to analyze and a set of
+ *  matrices(inputsType) that will be used as inputs for the function when measuring execution times.
+ *  This class provides a method to generate a set of quare matrices filled with random values.
+ *  The results will be saved in a map that contain the size of the square matrix as a key and the execution time
+ *  as a value.
+ *  Results can be written to a CSV file using the generateCSV method.
+ */
 class Timing {
 public:
     struct inputsType{
@@ -34,12 +42,6 @@ public:
                 delete[] matrix;
             }
         }
-
-//        ~inputsType() {
-//            for(int *matrix : _matrices) {
-//                delete[] matrix;
-//            }
-//        }
     };
 
     Timing(double*(*funcParam)(const int *matrix, int size), const inputsType &input) : _funcParam(funcParam), _inputs(input) {
@@ -49,12 +51,6 @@ public:
     void generateCSV(std::string filename);
 
     static inputsType generateInputs(int samples, int resolution);
-
-//    ~Timing() {
-//        delete &_results;
-//        delete &_inputs;
-//        delete &_funcParam;
-//    }
 private:
     std::map<int, int> _results;
     inputsType _inputs;
