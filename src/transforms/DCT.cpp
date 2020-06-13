@@ -31,24 +31,6 @@ double *DCT::DCT2Compute(const int *matrix, int size) {
     return c;
 }
 
-//This function computes DCT of a matrix of int
-double *DCT::DCT1Compute(const int *array, int size) {
-    double *c;
-    c = new double[size];
-    double sum;
-    int k,i,N;
-    N=size;
-    for(k=0; k < N; k++) {
-        sum = 0;
-        for (i = 0; i < N; i++) {
-            sum += array[i] *
-                   cos(k*M_PI*((double)(2*i+1)/(double)(2*N)));
-        }
-        c[k] = alpha1D(k,N) * sum;
-    }
-    return c;
-}
-
 //This functions computes alpha_kl values
 double DCT::alpha2D(int k, int l, int N) {
     if(k == 0 && l == 0) {
@@ -59,14 +41,5 @@ double DCT::alpha2D(int k, int l, int N) {
     }
     else {
         return 2/(double)N;
-    }
-}
-
-double DCT::alpha1D(int k, int N) {
-    if(k > 0 ) {
-        return sqrt(2/(double)N);
-    }
-    else {
-        return 1/sqrt((double)N);
     }
 }
