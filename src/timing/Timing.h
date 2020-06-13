@@ -21,16 +21,23 @@ public:
                 std::cout << std::endl << "MATRIX: " << i+1 << " - " << index << " " << std::endl;
                 int matSize = index * index;
                 for (int j = 0; j < matSize; j++) {
-                    std::cout << print[j] << " " ;
+                    std::cout << print[j] << " ";
                     if(((j+1) % (index) == 0)) {
                         std::cout << std::endl;
                     }
                 }
             }
         }
+
+        void cleanup(){
+            for(int *matrix : _matrices) {
+                delete[] matrix;
+            }
+        }
+
 //        ~inputsType() {
 //            for(int *matrix : _matrices) {
-//                delete matrix;
+//                delete[] matrix;
 //            }
 //        }
     };
@@ -43,11 +50,11 @@ public:
 
     static inputsType generateInputs(int samples, int resolution);
 
-    ~Timing() {
+//    ~Timing() {
 //        delete &_results;
 //        delete &_inputs;
 //        delete &_funcParam;
-    }
+//    }
 private:
     std::map<int, int> _results;
     inputsType _inputs;

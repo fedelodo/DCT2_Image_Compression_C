@@ -15,6 +15,8 @@ int main() {
     Timing fftTime(FFT::FFTWCompute, inputs);
     fftTime.generateCSV("fftw.csv");
 
+    inputs.cleanup();
+
     std::cout << "Done";
 
     return 0;

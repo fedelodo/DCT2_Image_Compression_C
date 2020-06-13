@@ -20,7 +20,7 @@ double *DCT::DCT2Compute(const int *matrix, int size) {
             sum = 0;
             for (i = 0; i < N; i++) {
                 for (j = 0; j < N; j++) {
-                    sum += matrix[i*size+j] *
+                    sum += (double)matrix[i*size+j] *
                            cos(k*M_PI*((double)(2*i+1)/(double)(2*N))) *
                            cos(l*M_PI*((double)(2*j+1)/(double)(2*N)));
                 }
