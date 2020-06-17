@@ -8,8 +8,8 @@
 //This function computes DCT of a matrix of int
 double *DCT::DCT2Compute(const int *matrix, int size) {
     // allocando la memoria come  type *array = new type[sizeX*sizeY];
-    // consente di gestire in modo più efficente gli array in quanto alloca un unico
-    // blocco di memoria l' accesso all' elemento array[i][j] può essere fatto con array[i*sizeY+j]
+    // consente di gestire in modo più efficente gli array, in quanto alloca un unico
+    // blocco di memoria l'accesso all'elemento array[i][j] può essere fatto con array[i*sizeY+j]
     double *c;
     c = new double[size * size];
     double sum;

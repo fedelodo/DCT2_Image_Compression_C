@@ -51,6 +51,7 @@ public:
     void generateCSV(std::string filename);
 
     static inputsType generateInputs(int samples, int resolution);
+
 private:
     std::map<int, int> _results;
     inputsType _inputs;
